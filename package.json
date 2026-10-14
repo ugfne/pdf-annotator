@@ -1,0 +1,68 @@
+{
+  "name": "pdf-annotator",
+  "displayName": "PDF Annotator",
+  "description": "Read and annotate PDFs in VS Code with machine-readable sidecar annotations for research and AI-assisted workflows.",
+  "version": "0.1.0",
+  "publisher": "ugfne",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "pdf",
+    "annotation",
+    "research",
+    "highlight",
+    "markdown",
+    "ai",
+    "agent"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "pdfAnnotator.viewer",
+        "displayName": "PDF Annotator",
+        "selector": [
+          {
+            "filenamePattern": "*.pdf"
+          }
+        ],
+        "priority": "option"
+      }
+    ],
+    "commands": [
+      {
+        "command": "pdfAnnotator.createMarkdown",
+        "title": "PDF Annotator: Create Markdown"
+      },
+      {
+        "command": "pdfAnnotator.showJson",
+        "title": "PDF Annotator: Show Annotation JSON"
+      }
+    ]
+  },
+  "scripts": {
+    "clean": "node scripts.mjs clean",
+    "build": "node scripts.mjs build",
+    "watch": "node scripts.mjs watch",
+    "typecheck": "tsc --noEmit",
+    "package": "npm run build && vsce package",
+    "vscode:prepublish": "npm run build"
+  },
+  "dependencies": {
+    "pdfjs-dist": "6.4.299"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/vscode": "^1.100.0",
+    "@vscode/vsce": "4.0.0",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2"
+  }
+}

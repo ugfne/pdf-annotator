@@ -1,0 +1,17 @@
+# Development configuration
+.vscode/**
+.github/**
+
+# Source files
+src/**
+media/**
+
+# Build configuration
+tsconfig.json
+scripts.mjs
+
+# Source maps
+*.map
+
+# Dependencies
+node_modules/**
